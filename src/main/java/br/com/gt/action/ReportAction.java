@@ -4,39 +4,41 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
-import br.com.gt.bean.PacienteBean;
-import br.com.gt.dao.Admin;
-
 import com.opensymphony.xwork2.ActionSupport;
+
+import br.com.gt.bean.ExameBean;
+import br.com.gt.dao.Admin;
 
 public class ReportAction extends ActionSupport {
 
 	private static final long serialVersionUID = 1L;
 	
 	private ResultSet rs = null;
-	private PacienteBean bean = null;
-	private List<PacienteBean> beanList = null;
+	private ExameBean bean = null;
+	private List<ExameBean> beanList = null;
 	private Admin admin = new Admin();
 	private boolean noData = false;
 
 	@Override
 	public String execute() throws Exception {
 		try {
-			beanList = new ArrayList<PacienteBean>();
-			rs = admin.listarPacientes();
+			beanList = new ArrayList<ExameBean>();
+			rs = admin.listarExames();
 			int i = 0;
 			if (rs != null) {
 				while (rs.next()) {
 					i++;
-					bean = new PacienteBean();
+					bean = new ExameBean();
 					bean.setSrNo(i);
 					bean.setNome(rs.getString("nome"));
 					bean.setIdade(rs.getInt("idade"));
 					bean.setSexo(rs.getString("sexo"));
 					bean.setDataNascimento(rs.getString("dataNascimento"));
-					bean.setEmail(rs.getString("email"));
 					bean.setTelefone(rs.getString("telefone"));
 					bean.setCpf(rs.getString("cpf"));
+					bean.setNomeDoExame(rs.getString("nomeDoExame"));
+					bean.setDataDoExame(rs.getString("dataDoExame"));
+					bean.setHoraDoExame(rs.getString("horaDoExame"));
 					beanList.add(bean);
 				}
 			}
@@ -60,11 +62,11 @@ public class ReportAction extends ActionSupport {
 		this.noData = noData;
 	}
 
-	public List<PacienteBean> getBeanList() {
+	public List<ExameBean> getBeanList() {
 		return beanList;
 	}
 
-	public void setBeanList(List<PacienteBean> beanList) {
+	public void setBeanList(List<ExameBean> beanList) {
 		this.beanList = beanList;
 	}
 }

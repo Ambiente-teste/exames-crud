@@ -2,9 +2,9 @@ package br.com.gt.action;
 
 import java.sql.ResultSet;
 
-import br.com.gt.dao.Admin;
-
 import com.opensymphony.xwork2.ActionSupport;
+
+import br.com.gt.dao.Admin;
 
 public class UpdateAction extends ActionSupport {
 
@@ -14,10 +14,12 @@ public class UpdateAction extends ActionSupport {
 	private int idade;
 	private String sexo;
 	private String dataNascimento;
-	private String email;
 	private String telefone;
 	private String cpf;
 	private String cpfhidden;
+	private String nomeDoExame;
+	private String dataDoExame;
+	private String horaDoExame;
 	private String msg = "";
 	private int ctr = -1;
 
@@ -29,21 +31,23 @@ public class UpdateAction extends ActionSupport {
 	public String execute() throws Exception {
 		try {
 			if (submitType.equals("updatedata")) {
-				rs = dao.obterPacientePorCpf(cpf.trim());
+				rs = dao.obterExamePorCpf(cpf.trim());
 				if (rs != null) {
 					while (rs.next()) {
 						nome = rs.getString("nome");
 						idade = rs.getInt("idade");
 						sexo = rs.getString("sexo");
 						dataNascimento = rs.getString("dataNascimento");
-						email = rs.getString("email");
 						telefone = rs.getString("telefone");
 						cpf = rs.getString("cpf");
+						nomeDoExame = rs.getString("nomeDoExame");
+						dataDoExame = rs.getString("dataDoExame");
+						horaDoExame = rs.getString("horaDoExame");
 					}
 				}
 			} else {
-				ctr = dao.atualizarPaciente(nome, idade, sexo, dataNascimento,
-						email, telefone, cpf, cpfhidden);
+				ctr = dao.atualizarExame(nome, idade, sexo, dataNascimento, telefone, cpf, cpfhidden, nomeDoExame,
+						dataDoExame, horaDoExame);
 				if (ctr > 0) {
 					msg = "Atualizado com sucesso";
 				} else {
@@ -91,14 +95,6 @@ public class UpdateAction extends ActionSupport {
 		this.dataNascimento = dataNascimento;
 	}
 
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
 	public String getTelefone() {
 		return telefone;
 	}
@@ -121,6 +117,30 @@ public class UpdateAction extends ActionSupport {
 
 	public void setCpfhidden(String cpfhidden) {
 		this.cpfhidden = cpfhidden;
+	}
+
+	public String getNomeDoExame() {
+		return nomeDoExame;
+	}
+
+	public void setNomeDoExame(String nomeDoExame) {
+		this.nomeDoExame = nomeDoExame;
+	}
+
+	public String getDataDoExame() {
+		return dataDoExame;
+	}
+
+	public void setDataDoExame(String dataDoExame) {
+		this.dataDoExame = dataDoExame;
+	}
+
+	public String getHoraDoExame() {
+		return horaDoExame;
+	}
+
+	public void setHoraDoExame(String horaDoExame) {
+		this.horaDoExame = horaDoExame;
 	}
 
 	public String getMsg() {

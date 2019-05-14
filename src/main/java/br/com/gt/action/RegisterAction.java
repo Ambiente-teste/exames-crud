@@ -1,8 +1,8 @@
 package br.com.gt.action;
 
-import br.com.gt.dao.Admin;
-
 import com.opensymphony.xwork2.ActionSupport;
+
+import br.com.gt.dao.Admin;
 
 public class RegisterAction extends ActionSupport {
 
@@ -11,10 +11,12 @@ public class RegisterAction extends ActionSupport {
 	private String nome;
 	private int idade;
 	private String sexo;
-	private String email;
 	private String telefone;
 	private String cpf;
 	private String dataNascimento;
+	private String nomeDoExame;
+	private String dataDoExame;
+	private String horaDoExame;
 	private String msg = "";
 	private Admin admin = null;
 	private int ctr = -1;
@@ -24,13 +26,13 @@ public class RegisterAction extends ActionSupport {
 		admin = new Admin();
 
 		try {
-			ctr = admin.registrarPaciente(nome, idade, sexo, email, telefone,
-					cpf, dataNascimento);
+			ctr = admin.registrarExame(nome, idade, sexo, telefone, cpf, dataNascimento, nomeDoExame, dataDoExame,
+					horaDoExame);
 			if (ctr > 0) {
-				msg = "Paciente cadastrado com sucesso";
+				msg = "Exame cadastrado com sucesso";
 			} else {
 				ctr = 0;
-				msg = "Não foi possível cadastrar o paciente";
+				msg = "Não foi possível cadastrar o exame";
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -70,20 +72,36 @@ public class RegisterAction extends ActionSupport {
 		this.dataNascimento = dataNascimento;
 	}
 
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
 	public String getTelefone() {
 		return telefone;
 	}
 
 	public void setTelefone(String telefone) {
 		this.telefone = telefone;
+	}
+
+	public String getNomeDoExame() {
+		return nomeDoExame;
+	}
+
+	public void setNomeDoExame(String nomeDoExame) {
+		this.nomeDoExame = nomeDoExame;
+	}
+
+	public String getDataDoExame() {
+		return dataDoExame;
+	}
+
+	public void setDataDoExame(String dataDoExame) {
+		this.dataDoExame = dataDoExame;
+	}
+
+	public String getHoraDoExame() {
+		return horaDoExame;
+	}
+
+	public void setHoraDoExame(String horaDoExame) {
+		this.horaDoExame = horaDoExame;
 	}
 
 	public String getMsg() {

@@ -1,17 +1,25 @@
 <%@taglib prefix="s" uri="/struts-tags"%>
 <html>
 <head>
-<title>Cadastro de Paciente</title>
+<title>Cadastro de Exames</title>
 <link rel="stylesheet" type="text/css"
-	href="<s:url value="/css/cadastro-paciente-estilo.css"/>" />
+	href="<s:url value="/css/cadastro-exame-estilo.css"/>" />
 </head>
 <body>
-	<h2>Cadastro de Pacientes</h2>
+	<h2>Cadastro de Exames</h2>
 
 	<div class="center-form">
-		<a href="reportall"><button type="button">Listar Pacientes</button></a>
+		<a href="reportall"><button type="button">Listar Exames</button></a>
 		<s:form action="registeruser.action" method="post" cssClass="width-full">
+			<s:textfield label="Nome Exame" name="nomeDoExame" cssClass="width-full" />
+			
+			<s:textfield label="Data Do Exame" name="dataDoExame" cssClass="width-full" />
+			
+			<s:textfield label="Hora do Exame" name="horaDoExame" cssClass="width-full" />
+			
 			<s:textfield label="Nome Completo" name="nome" cssClass="width-full" />
+			
+			<s:textfield label="CPF" name="cpf" cssClass="width-full" />
 
 			<s:textfield label="Idade" name="idade" cssClass="width-full" />
 
@@ -20,11 +28,8 @@
 			<s:textfield label="Data de Nasc." name="dataNascimento"
 				cssClass="width-full" />
 
-			<s:textfield label="Email" name="email" cssClass="width-full" />
-
 			<s:textfield label="Telefone" name="telefone" cssClass="width-full" />
 
-			<s:textfield label="CPF" name="cpf" cssClass="width-full" />
 			<s:submit cssClass="button-register" value="Cadastrar" />
 		</s:form>
 	</div>

@@ -12,29 +12,29 @@ public class Admin {
 	public static Connection getConnection() throws Exception {
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
-			return DriverManager.getConnection(
-					"jdbc:mysql://127.0.0.1:3306/exames", "root", "root");
+			return DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/db_clinica", "root", "root");
 		} catch (Exception e) {
 			e.printStackTrace();
 			return null;
 		}
 	}
 
-	// Método para salvar o paciente no banco de dados
-	public int registrarPaciente(String nome, int idade, String sexo,
-			String email, String telefone, String cpf, String dataNascimento)
-			throws Exception {
+	// Método para salvar o exame no banco de dados
+	public int registrarExame(String nome, int idade, String sexo, String telefone, String cpf, String dataNascimento,
+			String nomeDoExame, String dataDoExame, String horaDoExame) throws Exception {
 		int i = 0;
 		try {
-			String sql = "INSERT INTO paciente VALUES (?,?,?,?,?,?,?)";
+			String sql = "INSERT INTO exame VALUES (?,?,?,?,?,?,?,?,?)";
 			PreparedStatement ps = getConnection().prepareStatement(sql);
 			ps.setString(1, nome);
 			ps.setInt(2, idade);
 			ps.setString(3, sexo);
-			ps.setString(4, email);
-			ps.setString(5, telefone);
-			ps.setString(6, cpf);
-			ps.setString(7, dataNascimento);
+			ps.setString(4, telefone);
+			ps.setString(5, cpf);
+			ps.setString(6, dataNascimento);
+			ps.setString(7, nomeDoExame);
+			ps.setString(8, dataDoExame);
+			ps.setString(9, horaDoExame);
 			i = ps.executeUpdate();
 			return i;
 		} catch (Exception e) {
@@ -47,11 +47,11 @@ public class Admin {
 		}
 	}
 
-	// Método para listar todos os pacientes do banco de dados
-	public ResultSet listarPacientes() throws SQLException, Exception {
+	// Método para listar todos os exames do banco de dados
+	public ResultSet listarExames() throws SQLException, Exception {
 		ResultSet rs = null;
 		try {
-			String sql = "SELECT nome,idade,sexo,dataNascimento,email,telefone,cpf FROM paciente";
+			String sql = "SELECT nome,idade,sexo,dataNascimento,telefone,cpf,nomeDoExame,dataDoExame,horaDoExame FROM exame";
 			PreparedStatement ps = getConnection().prepareStatement(sql);
 			rs = ps.executeQuery();
 			return rs;
@@ -65,12 +65,11 @@ public class Admin {
 		}
 	}
 
-	// Método para listar um paciente por cpf do banco de dados
-	public ResultSet obterPacientePorCpf(String cpf) throws SQLException,
-			Exception {
+	// Método para listar um exame por cpf do banco de dados
+	public ResultSet obterExamePorCpf(String cpf) throws SQLException, Exception {
 		ResultSet rs = null;
 		try {
-			String sql = "SELECT nome,idade,sexo,dataNascimento,email,telefone,cpf FROM paciente WHERE cpf=?";
+			String sql = "SELECT nome,idade,sexo,dataNascimento,telefone,cpf,nomeDoExame,dataDoExame,horaDoExame FROM exame WHERE cpf=?";
 			PreparedStatement ps = getConnection().prepareStatement(sql);
 			ps.setString(1, cpf);
 			rs = ps.executeQuery();
@@ -85,23 +84,24 @@ public class Admin {
 		}
 	}
 
-	// Método para atualizar um paciente por cpf do banco de dados
-	public int atualizarPaciente(String nome, int idade, String sexo,
-			String dataNascimento, String email, String telefone, String cpf,
-			String cpfhidden) throws SQLException, Exception {
+	// Método para atualizar um exame por cpf do banco de dados
+	public int atualizarExame(String nome, int idade, String sexo, String dataNascimento, String telefone,
+			String cpf, String cpfhidden, String nomeDoExame, String dataDoExame, String horaDoExame) throws SQLException, Exception {
 		getConnection().setAutoCommit(false);
 		int i = 0;
 		try {
-			String sql = "UPDATE paciente SET nome=?,idade=?,sexo=?,dataNascimento=?,email=?,telefone=?,cpf=? WHERE cpf=?";
+			String sql = "UPDATE exame SET nome=?,idade=?,sexo=?,dataNascimento=?,telefone=?,cpf=?,nomeDoExame=?,dataDoExame=?,horaDoExame=? WHERE cpf=?";
 			PreparedStatement ps = getConnection().prepareStatement(sql);
 			ps.setString(1, nome);
 			ps.setInt(2, idade);
 			ps.setString(3, sexo);
 			ps.setString(4, dataNascimento);
-			ps.setString(5, email);
-			ps.setString(6, telefone);
-			ps.setString(7, cpf);
-			ps.setString(8, cpfhidden);
+			ps.setString(5, telefone);
+			ps.setString(6, cpf);
+			ps.setString(7, cpfhidden);
+			ps.setString(8, nomeDoExame);
+			ps.setString(9, dataDoExame);
+			ps.setString(10, horaDoExame);
 			i = ps.executeUpdate();
 			return i;
 		} catch (Exception e) {
@@ -115,12 +115,12 @@ public class Admin {
 		}
 	}
 
-	// Método para Deletar um paciente do banco de dados
-	public int removerPaciente(String cpf) throws SQLException, Exception {
+	// Método para Deletar um exame do banco de dados
+	public int removerExame(String cpf) throws SQLException, Exception {
 		getConnection().setAutoCommit(false);
 		int i = 0;
 		try {
-			String sql = "DELETE FROM paciente WHERE cpf=?";
+			String sql = "DELETE FROM exame WHERE cpf=?";
 			PreparedStatement ps = getConnection().prepareStatement(sql);
 			ps.setString(1, cpf);
 			i = ps.executeUpdate();

@@ -1,24 +1,26 @@
 <%@taglib prefix="s" uri="/struts-tags"%>
 <html>
 <head>
-<title>Lista de Paciente</title>
+<title>Lista de Exame</title>
 <link rel="stylesheet" type="text/css"
-	href="<s:url value="/css/report-style.css"/>" />
+	href="<s:url value="/css/listagem-exame-estilo.css"/>" />
 </head>
 <body>
-	<h2>Lista de Pacientes</h2>
+	<h2>Lista de Exame</h2>
 	<a href="/exames-crud"><button class="button-new" type="button">Cadastrar
-			novo Paciente</button></a>
+			novo Exame</button></a>
 	<div>
 		<table>
 			<thead>
 				<tr class="title">
 					<th>No.</th>
+					<th>Exame</th>
+					<th>Data do Exame</th>
+					<th>Hora do Exame</th>
 					<th>Nome</th>
 					<th>Idade</th>
 					<th>Sexo</th>
-					<th>Data de Nascimento</th>
-					<th>Email</th>
+					<th>Data de Nasc</th>
 					<th>Telefone</th>
 					<th>CPF</th>
 					<th>Ação</th>
@@ -27,11 +29,13 @@
 			<s:iterator value="beanList">
 				<tr>
 					<td><s:property value="srNo" /></td>
+					<td><s:property value="nomeDoExame" /></td>
+					<td><s:property value="dataDoExame" /></td>
+					<td><s:property value="horaDoExame" /></td>
 					<td><s:property value="nome" /></td>
 					<td><s:property value="idade" /></td>
 					<td><s:property value="sexo" /></td>
 					<td><s:property value="dataNascimento" /></td>
-					<td><s:property value="email" /></td>
 					<td><s:property value="telefone" /></td>
 					<td><s:property value="cpf" /></td>
 					<td><a

@@ -1,7 +1,6 @@
 package br.com.gt.bean;
 
-
-public class PacienteBean {
+public class ExameBean {
 
 	private String nome;
 	private String cpf;
@@ -10,6 +9,9 @@ public class PacienteBean {
 	private String dataNascimento;
 	private String email;
 	private String telefone;
+	private String nomeDoExame;
+	private String dataDoExame;
+	private String horaDoExame;
 	private int srNo;
 
 	public String getNome() {
@@ -74,6 +76,30 @@ public class PacienteBean {
 
 	public void setSrNo(int srNo) {
 		this.srNo = srNo;
+	}
+
+	public String getNomeDoExame() {
+		return nomeDoExame;
+	}
+
+	public void setNomeDoExame(String nomeDoExame) {
+		this.nomeDoExame = nomeDoExame;
+	}
+
+	public String getDataDoExame() {
+		return dataDoExame;
+	}
+
+	public void setDataDoExame(String dataDoExame) {
+		this.dataDoExame = dataDoExame;
+	}
+
+	public String getHoraDoExame() {
+		return horaDoExame;
+	}
+
+	public void setHoraDoExame(String horaDoExame) {
+		this.horaDoExame = horaDoExame;
 	}
 
 }
