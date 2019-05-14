@@ -1,0 +1,59 @@
+h2 {
+	text-align: center;
+	text-transform: uppercase;
+	margin-top: 25px;
+	margin-bottom: -20px;
+}
+
+table, td, th {
+	border: 1px solid black;
+}
+
+table {
+	border-collapse: collapse;
+	width: 100%;
+}
+
+th {
+	height: 35px;
+	text-transform: uppercase;
+}
+
+td {
+	padding: 5px;
+	text-align: center;
+	text-transform: uppercase;
+}
+
+tr.title {
+	background-color: #E0E0E1;
+}
+
+button {
+	height: 30px;
+	border-radius: 5px;
+	cursor: pointer;
+}
+
+.button-update {
+	background-color: #008CBA;
+	color: white;
+}
+
+.button-delete {
+	background-color: red;
+	color: white;
+}
+
+.button-new {
+	float: right;
+	margin-bottom: 10px;
+	background-color: green;
+	color: white;
+}
+
+.noData {
+	border: 1px solid #000;
+	padding: 7px;
+	text-align: center;
+}
