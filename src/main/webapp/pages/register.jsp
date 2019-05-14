@@ -9,8 +9,7 @@
 	<h2>Cadastro de Pacientes</h2>
 
 	<div class="center-form">
-		<a href="reportall"><button type="button">Listar
-				Pacientes</button></a>
+		<a href="reportall"><button type="button">Listar Pacientes</button></a>
 		<s:form action="registeruser.action" method="post" cssClass="width-full">
 			<s:textfield label="Nome Completo" name="nome" cssClass="width-full" />
 

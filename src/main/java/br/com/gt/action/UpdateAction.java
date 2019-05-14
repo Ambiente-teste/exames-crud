@@ -19,7 +19,7 @@ public class UpdateAction extends ActionSupport {
 	private String cpf;
 	private String cpfhidden;
 	private String msg = "";
-	private int ctr = 0;
+	private int ctr = -1;
 
 	ResultSet rs = null;
 	Admin dao = new Admin();
@@ -45,9 +45,10 @@ public class UpdateAction extends ActionSupport {
 				ctr = dao.atualizarPaciente(nome, idade, sexo, dataNascimento,
 						email, telefone, cpf, cpfhidden);
 				if (ctr > 0) {
-					msg = "Record Updated Successfuly";
+					msg = "Atualizado com sucesso";
 				} else {
-					msg = "error";
+					ctr = 0;
+					msg = "Não foi possível atualizar";
 				}
 			}
 
