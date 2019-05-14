@@ -98,10 +98,10 @@ public class Admin {
 			ps.setString(4, dataNascimento);
 			ps.setString(5, telefone);
 			ps.setString(6, cpf);
-			ps.setString(7, cpfhidden);
-			ps.setString(8, nomeDoExame);
-			ps.setString(9, dataDoExame);
-			ps.setString(10, horaDoExame);
+			ps.setString(7, nomeDoExame);
+			ps.setString(8, dataDoExame);
+			ps.setString(9, horaDoExame);
+			ps.setString(10, cpfhidden);
 			i = ps.executeUpdate();
 			return i;
 		} catch (Exception e) {

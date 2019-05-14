@@ -21,7 +21,7 @@ public class UpdateAction extends ActionSupport {
 	private String dataDoExame;
 	private String horaDoExame;
 	private String msg = "";
-	private int ctr = -1;
+	private int ctr = 0;
 
 	ResultSet rs = null;
 	Admin dao = new Admin();
@@ -51,7 +51,6 @@ public class UpdateAction extends ActionSupport {
 				if (ctr > 0) {
 					msg = "Atualizado com sucesso";
 				} else {
-					ctr = 0;
 					msg = "Não foi possível atualizar";
 				}
 			}

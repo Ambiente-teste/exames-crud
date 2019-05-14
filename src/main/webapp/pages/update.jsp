@@ -56,6 +56,7 @@
 	    	<input type="hidden" name="cpfhidden" value='<s:property value="cpf"/>'><br>
 		</div>
 		
+		<a href="reportall"><button class="button-listage" type="button">Listar Exames</button></a>
 		<button name="submitType" class="button-update" value="update" type="submit">Update</button>
 	</form>
 	

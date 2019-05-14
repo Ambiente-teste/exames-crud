@@ -1,0 +1,29 @@
+h2 {
+	text-align: center;
+	text-transform: uppercase;
+	margin-top: 25px;
+}
+
+p {
+	text-align: center;
+}
+
+button {
+	height: 30px;
+	border-radius: 5px;
+	cursor: pointer;
+	width: 200px;
+	margin: auto;
+	display: block;
+	background-color: #0f0f8e;
+	color: #FFF;
+}
+
+.message {
+	color: #FFF;
+    background-color: green;
+    width: 100%;
+    display: block;
+    text-align: center;
+    padding: 10px 0 10px 0;
+}

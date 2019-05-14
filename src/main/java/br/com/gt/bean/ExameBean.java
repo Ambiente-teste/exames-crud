@@ -102,4 +102,11 @@ public class ExameBean {
 		this.horaDoExame = horaDoExame;
 	}
 
+	@Override
+	public String toString() {
+		return "ExameBean [nome=" + nome + ", cpf=" + cpf + ", idade=" + idade + ", sexo=" + sexo + ", dataNascimento="
+				+ dataNascimento + ", email=" + email + ", telefone=" + telefone + ", nomeDoExame=" + nomeDoExame
+				+ ", dataDoExame=" + dataDoExame + ", horaDoExame=" + horaDoExame + ", srNo=" + srNo + "]";
+	}
+
 }

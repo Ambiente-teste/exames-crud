@@ -14,7 +14,7 @@
 			<result name="UPDATE">/pages/update.jsp</result>
 		</action>
 		<action name="deleterecord" class="br.com.gt.action.DeleteAction">
-			<result name="DELETE">/pages/report.jsp</result>
+			<result name="DELETE">/pages/delete.jsp</result>
 		</action>
 	</package>
 </struts>

@@ -27,7 +27,7 @@ input {
 .button-update {
 	background-color: green;
 	color: white;
-	height: 30px;
+	height: 32px;
 	border-radius: 5px;
 	cursor: pointer;
 	margin-top: 10px;
@@ -52,4 +52,10 @@ input {
     display: block;
     text-align: center;
     padding: 10px 0 10px 0;
+}
+
+.button-listage {
+	margin-top: 11px;
+    margin-left: 140px;
+    width: 240px;
 }
